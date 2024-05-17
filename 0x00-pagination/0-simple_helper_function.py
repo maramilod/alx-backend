@@ -7,7 +7,7 @@ y
 from typing import Tuple
 
 
-deff index_range(page: int, page_size: int) -> Tuple[int, int]:
+def index_range(page: int, page_size: int) -> Tuple[int, int]:
     """
     function should return a tuple of size two containing a
     start index and an end index corresponding
