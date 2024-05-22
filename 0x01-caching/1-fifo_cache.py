@@ -1,41 +1,33 @@
 #!/usr/bin/env python3
+"""First-In First-Out caching module.
 """
-h
-e
-y
-"""
-BaseCaching = __import__('base_caching').BaseCaching
+from collections import OrderedDict
+
+from base_caching import BaseCaching
 
 
 class FIFOCache(BaseCaching):
-    """
-    lass FIFOCache that inherits
-    from BaseCaching and is a caching system:
+    """Represents an object that allows storing and
+    retrieving items from a dictionary with a FIFO
+    removal mechanism when the limit is reached.
     """
     def __init__(self):
-        """
-        Initiliaze
+        """Initializes the cache.
         """
         super().__init__()
-        self.__queue = []
+        self.cache_data = OrderedDict()
 
     def put(self, key, item):
+        """Adds an item in the cache.
         """
-        If key or item is None,
-        this method should not do anything.
-        """
-        if not key or not item:
+        if key is None or item is None:
             return
-        elif key not in self.__queue:
-            self.__queue.append(key)
-        if len(self.__queue) > self.MAX_ITEMS:
-            self.cache_data.pop(self.__queue[0])
-            print('DISCARD: {}'.format(self.__queue.pop(0)))
-        self.cache_data.update({key: item})
+        self.cache_data[key] = item
+        if len(self.cache_data) > BaseCaching.MAX_ITEMS:
+            first_key, _ = self.cache_data.popitem(False)
+            print("DISCARD:", first_key)
 
     def get(self, key):
+        """Retrieves an item by key.
         """
-        Must return the value in
-        self.cache_data linked to key.
-        """
-        return self.cache_data.get(key)
+        return self.cache_data.get(key, None)
