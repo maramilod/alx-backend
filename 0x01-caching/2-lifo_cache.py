@@ -18,6 +18,8 @@ class FIFOCache(BaseCaching):
 
     def put(self, key, item):
         """Adds an item in the cache.
+        If key or item is None,
+        this method should not do anything.
         """
         if key is None or item is None:
             return
