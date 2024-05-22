@@ -2,7 +2,6 @@
 """First-In First-Out caching module.
 """
 from collections import OrderedDict
-
 from base_caching import BaseCaching
 
 
