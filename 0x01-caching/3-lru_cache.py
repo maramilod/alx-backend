@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
-"""Least Recently Used caching module.
+"""
+h
+e
+y
 """
 from collections import OrderedDict
-
 from base_caching import BaseCaching
 
 
