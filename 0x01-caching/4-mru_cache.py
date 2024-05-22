@@ -1,20 +1,17 @@
 #!/usr/bin/env python3
-"""
-h
-e
-y
+"""Task 4: MRU Caching.
 """
 from collections import OrderedDict
+
 from base_caching import BaseCaching
 
 
 class MRUCache(BaseCaching):
-    """
-    Represents an object that allows storing
+    """A class `MRUCache` that inherits
+       from `BaseCaching` and is a caching system
     """
     def __init__(self):
-        """
-        Initializes
+        """Initializes the cache.
         """
         super().__init__()
         self.cache_data = OrderedDict()
